@@ -1,6 +1,140 @@
+@import grid
+
+$bg-color: rgb(230, 230, 230)
 $dark-gray-color: #3d464d
 $light-gray-color: #47525d
 $beige-color: #828282
 
 body
-  background: $dark-gray-color
+  background: $bg-color
+  font-family: 'Open Sans', sans-serif
+
+  .column.full
+    &:first-child
+      text-align: center
+
+#logo
+  display: block
+  width: 300px
+  margin: 0 auto
+
+h1
+  color: $beige-color
+  font-size: 2.25em
+  font-weight: 900
+  text-transform: uppercase
+
+  em
+    font-style: normal
+    color: $dark-gray-color
+
+h2
+  font-weight: 600
+  color: $beige-color
+
+h3
+  font-weight: 400
+  font-size: 1em
+  color: $dark-gray-color
+  width: 50%
+  margin: 0 auto
+
+img
+  width: 100%
+  max-width: 100%
+  height: auto
+
+button
+  color: rgb(255, 255, 255)
+  display: inline-block
+  text-align: center
+  font-weight: 700
+  background: rgb(100, 206, 131)
+  cursor: pointer
+  text-decoration: none
+  text-shadow: 0 1px 0px rgba(0, 0, 0, 0.15)
+  border-width: 1px 1px 3px
+  border-style: solid
+  border-color: rgb(61, 194, 100)
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+  -webkit-border-radius: 5px
+  -moz-border-radius: 5px
+  -ms-border-radius: 5px
+  -o-border-radius: 5px
+  border-radius: 5px
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+  -webkit-box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset
+  -moz-box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset
+  &.big
+    padding: 21px 35px 19px
+    margin: 40px 0
+  &.green
+    background-color: rgb(100, 206, 131)
+    font-size: 1rem
+  &:hover
+    background-color: rgb(61, 194, 100)
+    color: rgb(255, 255, 255)
+
+nav
+  position: relative
+
+  h1
+    position: absolute
+    left: 0
+    top: 0
+    font-size: 1em
+
+  #logo
+    display: inline-block
+    width: 50px
+    margin: 0 auto
+
+  #settings
+    list-style: none
+    margin: 10px 0
+    padding: 0
+    position: absolute
+    right: 0
+    top: 0
+
+    > *
+      display: inline-block
+
+    #name
+      vertical-align: 11px
+      font-size: 12px
+      font-weight: 700
+      color: $beige-color
+
+    #logout-btn
+      position: absolute
+      top: 1px
+      right: 0
+
+    #avatar
+      width: 30px
+      border-radius: 50%
+      margin: 0 70px 0 5px
+      border: 2px solid white
+
+  #name,
+  #avatar
+    opacity: 1
+    -webkit-transition: all 0.4s
+    -moz-transition: all 0.4s
+    transition: all 0.4s
+
+@media screen and (max-width: 640px)
+  nav
+    h1
+      position: inherit
+      margin: 0
+
+    #name,
+    #avatar
+      opacity: 0!important

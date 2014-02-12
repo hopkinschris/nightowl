@@ -4,6 +4,15 @@ class SessionsController < ApplicationController
     redirect_to dashboard_path(user.id)
   end
 
+  def destroy
+    reset_session
+    redirect_to root_url
+  end
+
+  def new
+    redirect_to '/auth/twitter'
+  end
+
   protected
 
   def auth_hash

@@ -1,1 +1,23 @@
-<%= @user.name %>
+<div class="container">
+  <div class="row">
+    <nav class="column full">
+      <h1>Night <em>Owl</em></h1>
+      <%= image_tag "square@2x.png", id: "logo" %>
+      <ul id="settings">
+        <li id="name"><%= @user.name %></li>
+        <li><%= image_tag @user.image, id: "avatar" %></li>
+        <a id="logout-btn" href="<%= logout_path %>">
+          <button id="logout-btn">Log out</button>
+        </a>
+      </div>
+    </nav>
+    <div class="column full">
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('nav').addClass('animated fadeInDown');
+  });
+</script>
