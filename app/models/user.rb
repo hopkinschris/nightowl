@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :keywords
 
   validates :uid, presence: true, uniqueness: true
 

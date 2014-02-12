@@ -11,7 +11,11 @@
         </a>
       </div>
     </nav>
+  </div>
+
+  <div class="row">
     <div class="column full">
+      <p id="welcome">Welcome back, @<%= @user.nickname %>!</p>
     </div>
   </div>
 </div>
@@ -19,5 +23,6 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $('nav').addClass('animated fadeInDown');
+    $('#welcome').addClass('animated fadeIn')
   });
 </script>

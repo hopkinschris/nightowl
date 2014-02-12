@@ -80,61 +80,69 @@ button
     background-color: rgb(61, 194, 100)
     color: rgb(255, 255, 255)
 
-nav
-  position: relative
-
-  h1
-    position: absolute
-    left: 0
-    top: 0
-    font-size: 1em
-
-  #logo
-    display: inline-block
-    width: 50px
-    margin: 0 auto
-
-  #settings
-    list-style: none
-    margin: 10px 0
-    padding: 0
-    position: absolute
-    right: 0
-    top: 0
-
-    > *
-      display: inline-block
-
-    #name
-      vertical-align: 11px
-      font-size: 12px
-      font-weight: 700
-      color: $beige-color
-
-    #logout-btn
-      position: absolute
-      top: 1px
-      right: 0
-
-    #avatar
-      width: 30px
-      border-radius: 50%
-      margin: 0 70px 0 5px
-      border: 2px solid white
-
-  #name,
-  #avatar
-    opacity: 1
-    -webkit-transition: all 0.4s
-    -moz-transition: all 0.4s
-    transition: all 0.4s
-
-@media screen and (max-width: 640px)
+.dashboard#index
   nav
+    position: relative
+    margin-bottom: 5%
+
     h1
-      position: inherit
-      margin: 0
+      position: absolute
+      left: 0
+      top: 0
+      font-size: 1em
+
+    #logo
+      display: inline-block
+      width: 50px
+      margin: 0 auto
+
+    #settings
+      list-style: none
+      margin: 10px 0
+      padding: 0
+      position: absolute
+      right: 0
+      top: 0
+
+      > *
+        display: inline-block
+
+      #name
+        vertical-align: 11px
+        font-size: 12px
+        font-weight: 700
+        color: $beige-color
+
+      #logout-btn
+        position: absolute
+        top: 1px
+        right: 0
+
+      #avatar
+        width: 30px
+        border-radius: 50%
+        margin: 0 70px 0 5px
+        border: 2px solid white
 
     #name,
     #avatar
-      opacity: 0!important
+      opacity: 1
+      -webkit-transition: all 0.4s
+      -moz-transition: all 0.4s
+      transition: all 0.4s
+
+  #welcome
+    font-size: 1rem
+    font-weight: 400
+    color: $dark-gray-color
+
+@media screen and (max-width: 640px)
+  .dashboard#index
+    nav
+      h1
+        position: inherit
+        margin: 0
+
+      #name,
+      #avatar
+        opacity: 0!important
