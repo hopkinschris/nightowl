@@ -5,9 +5,10 @@ class KeywordsController < ApplicationController
         flash[:alert] = "Sorry, free accounts have a three keyword max"
         redirect_to :back
       else
-        if @keyword = @user.keywords.build(name: params[:keyword][:name])
-          redirect_to :back
-        end
+        @user.keywords.build(name: params[:keyword][:name])
+        @user.save
+
+        redirect_to :back
       end
     end
   end

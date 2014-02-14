@@ -30,7 +30,7 @@
       </ul>
 
       <%= form_for @keyword do |f| %>
-        <%= f.text_field :name, autofocus: "autofocus" %>
+        <%= f.text_field :name, autofocus: "autofocus", spellcheck: "false", required: "required" %>
         <%= f.hidden_field :user_id, value: @user.id %>
         <%= f.submit %>
       <% end %>

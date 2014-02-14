@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def create
     user = User.find_by_uid(auth_hash['uid']) || User.create_from_auth_hash(auth_hash)
+    session[:user_id] = user.id
     redirect_to dashboard_path(user.id)
   end
 

@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :correct_user?
 
   def index
     @user = current_user
