@@ -12,6 +12,8 @@
       <a href="<%= login_path %>">
         <button id="login-btn" class="green big">Log in with Twitter</button>
       </a>
+
+      <a id="waitlist-link" href="<%= waitlist_path %>" class="clearfix">View Waitlist (<%= @waitlisters.count %>)</a>
     </div>
   </div>
 </div>

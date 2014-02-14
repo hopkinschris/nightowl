@@ -7,5 +7,7 @@ NightOwl::Application.routes.draw do
 
   get '/login', to: 'sessions#new', as: :login
 
+  get '/waitlist', to: 'waitlist#index', as: :waitlist
+
   resources :keywords
 end

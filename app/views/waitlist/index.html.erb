@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <nav class="column full">
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
+
+      <h1><a href="<%= root_url %>">Night <em>Owl</em></a></h1>
+      <%= image_tag "square@2x.png", id: "logo" %>
+      <h2>Waitlist</h2>
+    </nav>
+  </div>
+
+  <div class="row">
+    <div class="column full">
+      <ul id="waitlist">
+        <% if @users.count == 0 %>
+          <span>No peeps on the waitlist currently.</span>
+        <% else %>
+          <% @users.each do |u| %>
+            <%= content_tag :li, link_to("@#{ u.nickname }", "http://twitter.com/#{ u.nickname }", target: "_blank") %>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('nav').addClass('animated fadeInDown');
+    $('#waitlist li').addClass('animated bounceIn');
+  });
+</script>

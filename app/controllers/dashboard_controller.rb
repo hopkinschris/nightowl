@@ -6,12 +6,9 @@ class DashboardController < ApplicationController
 
     if @user.waitlist == "true"
       flash[:notice] = "Thanks, you're now on the waitlist. We'll tweet you when your account is active"
-      redirect_to root_url
+      redirect_to waitlist_path
     else
       @keyword = Keyword.new
     end
-  end
-
-  def waitlist
   end
 end
