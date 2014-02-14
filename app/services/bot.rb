@@ -12,7 +12,7 @@ class Bot
     begin
       num_attempts += 1
       @user.keywords.each do |k|
-        @client.search(k.name, result_type: "mixed", count: 100).take(100).each do |tweet|
+        @client.search(k.name, result_type: "mixed", count: 10).take(10).each do |tweet|
           @client.favorite tweet
         end
       end
