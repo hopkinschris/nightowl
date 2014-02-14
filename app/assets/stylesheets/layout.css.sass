@@ -4,9 +4,12 @@ $bg-color: rgb(230, 230, 230)
 $dark-gray-color: #3d464d
 $light-gray-color: #47525d
 $beige-color: #828282
+$blue-color: #3f8abf
+$green-color: rgb(100, 206, 131)
 
 body
   background: $bg-color
+  color: #333
   font-family: 'Open Sans', sans-serif
 
   .column.full
@@ -44,6 +47,7 @@ img
   max-width: 100%
   height: auto
 
+input[type='submit'],
 button
   color: rgb(255, 255, 255)
   display: inline-block
@@ -76,6 +80,14 @@ button
   &.green
     background-color: rgb(100, 206, 131)
     font-size: 1rem
+  &.blue
+    background-color: #3F8ABF
+    -webkit-box-shadow: 0 4px 0 0 #2C6085
+    -moz-box-shadow: 0 4px 0 0 #2c6085
+    box-shadow: 0 4px 0 0 #2C6085
+    border: none
+    &:hover
+      background-color: #4795CC
   &:hover
     background-color: rgb(61, 194, 100)
     color: rgb(255, 255, 255)
@@ -131,10 +143,99 @@ button
       -moz-transition: all 0.4s
       transition: all 0.4s
 
-  #welcome
-    font-size: 1rem
-    font-weight: 400
-    color: $dark-gray-color
+  #keywords
+    max-width: 40%
+    list-style: none
+    margin: 0 auto
+    margin-top: 50px
+    padding: 0
+
+    li
+      &.tag
+        cursor: default
+        border-radius: 4px
+        background-color: $beige-color
+        color: #FFF
+        font-size: 1em
+        font-weight: 700
+        display: inline-block
+        margin: 5px 2.5px
+        overflow: hidden
+        line-height: 15px
+        padding: 6px 19px 8px 19px
+        position: relative
+        vertical-align: middle
+        text-shadow: 0 1px 0px rgba(0, 0, 0, 0.15)
+        -webkit-transition: 0.25s linear
+        transition: 0.25s linear
+
+  form
+    max-width: 33%
+    margin: 0 auto
+    margin-top: 50px
+
+    input[type="submit"]
+      padding: 15px 35px 15px
+      margin: 15px 0
+      font-size: 1rem
+      background-color: #3F8ABF
+      -webkit-box-shadow: 0 4px 0 0 #2C6085
+      -moz-box-shadow: 0 4px 0 0 #2c6085
+      box-shadow: 0 4px 0 0 #2C6085
+      border: none
+      &:hover
+        background-color: #4795CC
+
+    input[type="text"]
+      color: #333
+      border: 2px solid white
+      background: white
+      font-size: 1em
+      font-weight: 400
+      padding: 11px 15px 12px
+      -webkit-border-radius: 5px
+      -moz-border-radius: 5px
+      -ms-border-radius: 5px
+      -o-border-radius: 5px
+      border-radius: 5px
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+      height: auto
+      margin: 0
+      outline: 0
+      padding: 15px
+      width: 100%
+      -webkit-box-shadow: none
+      -moz-box-shadow: none
+      box-shadow: none
+      -webkit-box-sizing: border-box
+      -moz-box-sizing: border-box
+      box-sizing: border-box
+      -webkit-transition: 0.2s
+      -moz-transition: 0.2s
+      -o-transition: 0.2s
+      transition: 0.2s
+      text-align: center
+      &:focus
+        color: #333
+        border: 2px solid $blue-color
+        background: #FFF
+        -webkit-border-radius: 5px
+        -moz-border-radius: 5px
+        -ms-border-radius: 5px
+        -o-border-radius: 5px
+        border-radius: 5px
+
+    ::-webkit-input-placeholder
+      color: $beige-color
+
+    :-moz-placeholder
+      color: $beige-color
+
+    ::-moz-placeholder
+      color: $beige-color
+
+    :-ms-input-placeholder
+      color: $beige-color
 
 @media screen and (max-width: 640px)
   .dashboard#index
@@ -146,3 +247,12 @@ button
       #name,
       #avatar
         opacity: 0!important
+
+    #keywords,
+    form
+      max-width: 100%
+
+    #keywords
+      li
+        width: 98%
+        display: block

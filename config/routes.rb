@@ -6,4 +6,6 @@ NightOwl::Application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: :logout
 
   get '/login', to: 'sessions#new', as: :login
+
+  resources :keywords
 end
