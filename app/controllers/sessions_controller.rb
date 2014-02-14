@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
+    flash[:notice] = "See you soon"
     redirect_to root_url
   end
 

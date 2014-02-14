@@ -1,6 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="column full">
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
+
       <%= image_tag "square@2x.png", id: "logo" %>
       <h1>Night <em>Owl</em></h1>
       <h2>A Twitter bot who is habitually active or wakeful at night.</h2>
