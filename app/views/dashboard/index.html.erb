@@ -15,6 +15,10 @@
 
   <div class="row">
     <div class="column full">
+      <% if flash[:alert] %>
+        <div class="alert"><%= flash[:alert] %></div>
+      <% end %>
+
       <ul id="keywords">
         <% if @user.keywords.count == 0 %>
           <span>Start by adding a keyword below:</span>

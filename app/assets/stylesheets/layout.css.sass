@@ -6,6 +6,7 @@ $light-gray-color: #47525d
 $beige-color: #828282
 $blue-color: #3f8abf
 $green-color: rgb(100, 206, 131)
+$red-color: #e74c3c
 
 body
   background: $bg-color
@@ -16,7 +17,8 @@ body
     &:first-child
       text-align: center
 
-.notice
+.notice,
+.alert
   display: inline-block
   margin: 10px
   padding: 10px
@@ -28,12 +30,17 @@ body
   -o-border-radius: 5px
   border-radius: 5px
 
+.alert
+  background-color: $red-color
+
 #logo
   display: block
   width: 300px
   margin: 0 auto
 
 h1
+  display: inline-block
+  position: relative
   color: $beige-color
   font-size: 2.25em
   font-weight: 900
@@ -45,6 +52,14 @@ h1
   em
     font-style: normal
     color: $dark-gray-color
+
+  &:after
+    content: "beta"
+    text-transform: uppercase
+    position: absolute
+    top: -0.5em
+    right: -2em
+    font-size: 0.4em
 
 h2
   font-weight: 600
@@ -121,6 +136,8 @@ button
       left: 0
       top: 0
       font-size: 1em
+      &:after
+        right: -2.5em
 
     #logo
       display: inline-block
@@ -268,11 +285,17 @@ button
         color: $beige-color
 
 @media screen and (max-width: 640px)
+  h3
+    width: 100%
+
   .dashboard#index
     nav
       h1
+        display: block
         position: inherit
         margin: 0
+        &:after
+          display: none
 
       #name,
       #avatar

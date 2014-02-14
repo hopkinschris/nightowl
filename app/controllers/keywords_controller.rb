@@ -1,7 +1,14 @@
 class KeywordsController < ApplicationController
   def create
-    if @keyword = Keyword.create!(name: params[:keyword][:name], user_id: params[:keyword][:user_id])
-      redirect_to :back
+    if @user = User.find(params[:keyword][:user_id])
+      if @user.keywords.count >= 3
+        flash[:alert] = "Sorry, free accounts have a three keyword max"
+        redirect_to :back
+      else
+        if @keyword = @user.keywords.build(name: params[:keyword][:name])
+          redirect_to :back
+        end
+      end
     end
   end
 end
