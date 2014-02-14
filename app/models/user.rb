@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   validates :uid, presence: true, uniqueness: true
 
+  scope :active, -> { where(waitlist: false) }
+
   def self.create_from_auth_hash(auth_hash)
     create! do |user|
       user.provider = auth_hash['provider']
