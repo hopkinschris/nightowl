@@ -5,6 +5,7 @@ task :awaken => :environment do
     bot = Bot.new u
     puts "NightOwl • @#{ u.nickname }"
     bot.scour_twitter
+    puts "Complete"
   end
   puts "done."
 end

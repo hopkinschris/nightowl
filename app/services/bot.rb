@@ -12,8 +12,11 @@ class Bot
     begin
       num_attempts += 1
       @user.keywords.each do |k|
-        @client.search(k.name, result_type: "mixed", count: 10).take(10).each do |tweet|
-          @client.favorite tweet
+        @client.search(k.name, result_type: "recent", count: 10).take(10).each do |tweet|
+          if @client.favorite(tweet)
+            k.impression_count += 1
+            k.save
+          end
         end
       end
     rescue Twitter::Error::TooManyRequests => error
