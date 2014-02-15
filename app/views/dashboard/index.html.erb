@@ -35,7 +35,7 @@
           <span>Start by adding a keyword below:</span>
         <% else %>
           <% @user.keywords.each do |k| %>
-            <%= content_tag :li, ("#{ k.name }" + content_tag(:span, "(#{ k.impression_count })")).html_safe, class: "tag" %>
+            <%= content_tag :li, k.name, class: "tag" %>
           <% end %>
         <% end %>
       </ul>
