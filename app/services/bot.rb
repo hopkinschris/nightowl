@@ -22,6 +22,7 @@ class Bot
     rescue Twitter::Error::TooManyRequests => error
       if num_attempts <= MAX_ATTEMPTS
         sleep (error.rate_limit.reset_in.nil? ? 15.minutes : error.rate_limit.reset_in)
+        puts "Waiting..."
         retry
       else
         raise
