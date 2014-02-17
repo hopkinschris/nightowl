@@ -50,9 +50,13 @@
             <% @user.keywords.sort_by(&:created_at).each do |k| %>
               <blockquote class="clearfix" data-selected="<%= k.result_type %>">
                 <%= content_tag :span, k.name, class: "keyword" %>
-                <%= form_for k do |f| %>
+                <%= form_for k, html: { method: :put } do |f| %>
                   <%= f.select :result_type, [['mixed','mixed'],['recent','recent'],['popular','popular']] %>
-                  <%= f.submit 'Update' %>
+                  <%= f.submit 'Update', class: 'update' %>
+                <% end %>
+
+                <%= form_for k, html: { method: :delete } do |f| %>
+                  <%= f.submit 'Delete', class: 'red delete' %>
                 <% end %>
               </blockquote>
             <% end %>

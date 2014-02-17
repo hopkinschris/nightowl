@@ -23,4 +23,12 @@ class KeywordsController < ApplicationController
       redirect_to :back
     end
   end
+
+  def destroy
+    @keyword = Keyword.find params[:id]
+    @keyword.destroy
+
+    flash[:notice] = "Successfully destroyed <br>#{ @keyword.name }".html_safe
+    redirect_to :back
+  end
 end

@@ -119,6 +119,15 @@ button
     border: none
     &:hover
       background-color: #4795CC
+  &.red
+    background-color: $red-color
+    -webkit-box-shadow: 0 3px 0 0 #c0392b
+    -moz-box-shadow: 0 3px 0 0 #c0392b
+    box-shadow: 0 3px 0 0 #c0392b
+    border: none
+    line-height: 1.3em
+    &:hover
+      background-color: #f15f50
   &:hover
     background-color: rgb(61, 194, 100)
     color: rgb(255, 255, 255)
@@ -339,10 +348,16 @@ button
           text-transform: uppercase
 
   .edit_keyword
-    input[type='submit']
+    .update
       position: absolute
       right: 12px
       bottom: -45px
+      z-index: 10
+
+    .delete
+      position: absolute
+      right: 75px
+      bottom: -42px
       z-index: 10
 
 .waitlist#index
