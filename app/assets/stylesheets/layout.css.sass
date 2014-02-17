@@ -182,35 +182,71 @@ button
 
   #keywords
     max-width: 40%
-    list-style: none
     margin: 0 auto
     margin-top: 50px
     padding: 0
 
-    li
-      &.tag
-        cursor: default
-        border-radius: 4px
-        background-color: $beige-color
-        color: #FFF
-        font-size: 1em
-        font-weight: 700
-        display: inline-block
-        margin: 5px 2.5px
-        overflow: hidden
-        line-height: 15px
-        padding: 6px 19px 8px 19px
-        position: relative
-        vertical-align: middle
-        text-shadow: 0 1px 0px rgba(0, 0, 0, 0.15)
-        -webkit-transition: 0.25s linear
-        transition: 0.25s linear
+    blockquote
+      background-color: #f6f9fa
+      border-left: none
+      color: rgba(85,94,106,0.8)
+      font-size: 16px
+      line-height: 1.5
+      text-align: center
+      margin: 0 0 30px 0
+      padding: 26px 26px 52px 26px
+      position: relative
+      -webkit-border-radius: 5px
+      -moz-border-radius: 5px
+      -ms-border-radius: 5px
+      -o-border-radius: 5px
+      border-radius: 5px
+      -webkit-box-shadow: 0 3px 0 #dce8ed
+      -moz-box-shadow: 0 3px 0 #dce8ed
+      box-shadow: 0 3px 0 #dce8ed
 
-        span
-          margin-left: 5px
+      &:before
+        content: ""
+        display: block
+        height: 0
+        width: 0
+        position: absolute
+        border: solid 14px transparent
+        z-index: 3
+        border-top-color: #f6f9fa
+        top: auto
+        right: auto
+        bottom: -28px
+        left: 30px
+
+      &:after
+        content: ""
+        display: block
+        height: 0
+        width: 0
+        position: absolute
+        border: solid 14px transparent
+        z-index: 2
+        border-width: 18px
+        border-top-color: #dce8ed
+        top: auto
+        right: auto
+        bottom: -36px
+        left: 26px
+
+    .chosen-container
+      position: absolute
+      right: 26px
+      .chosen-single
+        line-height: 20px
+
+    .keyword
+      position: absolute
+      left: 26px
+      font-weight: 600
 
   form
-    max-width: 33%
+    max-width: 40%
     margin: 0 auto
     margin-top: 50px
 
@@ -223,6 +259,8 @@ button
       -moz-box-shadow: 0 4px 0 0 #2c6085
       box-shadow: 0 4px 0 0 #2C6085
       border: none
+      float: left
+      width: 100%
       &:hover
         background-color: #4795CC
 
