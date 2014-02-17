@@ -181,9 +181,8 @@ button
       transition: all 0.4s
 
   #keywords
-    max-width: 40%
     margin: 0 auto
-    margin-top: 50px
+    margin-top: 35px
     padding: 0
 
     blockquote
@@ -193,7 +192,7 @@ button
       font-size: 16px
       line-height: 1.5
       text-align: center
-      margin: 0 0 30px 0
+      margin: 0 0 67px 0
       padding: 26px 26px 52px 26px
       position: relative
       -webkit-border-radius: 5px
@@ -204,6 +203,9 @@ button
       -webkit-box-shadow: 0 3px 0 #dce8ed
       -moz-box-shadow: 0 3px 0 #dce8ed
       box-shadow: 0 3px 0 #dce8ed
+
+      &:last-child
+        margin-bottom: 90px
 
       &:before
         content: ""
@@ -217,7 +219,7 @@ button
         top: auto
         right: auto
         bottom: -28px
-        left: 30px
+        right: 30px
 
       &:after
         content: ""
@@ -232,7 +234,7 @@ button
         top: auto
         right: auto
         bottom: -36px
-        left: 26px
+        right: 26px
 
     .chosen-container
       position: absolute
@@ -245,8 +247,7 @@ button
       left: 26px
       font-weight: 600
 
-  form
-    max-width: 40%
+  #new_keyword
     margin: 0 auto
     margin-top: 50px
 
@@ -336,6 +337,13 @@ button
           font-weight: 700
           font-size: 0.5rem
           text-transform: uppercase
+
+  .edit_keyword
+    input[type='submit']
+      position: absolute
+      right: 12px
+      bottom: -45px
+      z-index: 10
 
 .waitlist#index
   #waitlist

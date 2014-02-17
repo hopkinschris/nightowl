@@ -12,4 +12,15 @@ class KeywordsController < ApplicationController
       end
     end
   end
+
+  def update
+    @keyword = Keyword.find params[:id]
+    if @keyword.update params[:keyword]
+      flash[:notice] = "Successfully updated <br>#{ @keyword.name }".html_safe
+      redirect_to :back
+    else
+      flash[:alert] = "Something went wrong :("
+      redirect_to :back
+    end
+  end
 end

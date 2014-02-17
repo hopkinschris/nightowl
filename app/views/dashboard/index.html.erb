@@ -15,44 +15,50 @@
 
   <div class="row">
     <div class="column full">
-      <% if flash[:alert] %>
-        <div class="alert"><%= flash[:alert] %></div>
-      <% end %>
+      <div class="column one-third">
+        <% if flash[:alert] %>
+          <div class="alert"><%= flash[:alert] %></div>
+        <% end %>
 
-      <ul id="analytics">
-        <li id="keyword-count">
-          <span><%= @user.keywords.count %></span>
-          <span>Keywords</span>
-        </li>
-        <li id="impression-count">
-          <span><%= @count %></span>
-          <span>Total Impressions</span>
-        </li>
-      </ul>
+        <% if flash[:notice] %>
+          <div class="notice"><%= flash[:notice] %></div>
+        <% end %>
 
-      <div id="keywords">
-        <% if @user.keywords.count == 0 %>
-          <span>Start by adding a keyword below:</span>
-        <% else %>
-          <% @user.keywords.each do |k| %>
-            <blockquote class="clearfix" data-selected="<%= k.result_type %>">
-              <%= content_tag :span, k.name, class: "keyword" %>
-              <select class="result-type">
-                <option value="mixed">mixed</option>
-                <option value="recent">recent</option>
-                <option value="popular">popular</option>
-              </select>
-            </blockquote>
-            <%= javascript_tag "$('select').val($('blockquote').data('selected'))" %>
-          <% end %>
+        <ul id="analytics">
+          <li id="keyword-count">
+            <span><%= @user.keywords.count %></span>
+            <span>Keywords</span>
+          </li>
+          <li id="impression-count">
+            <span><%= @count %></span>
+            <span>Total Impressions</span>
+          </li>
+        </ul>
+
+        <%= form_for @keyword do |f| %>
+          <%= f.text_field :name, autofocus: "autofocus", spellcheck: "false", required: "required" %>
+          <%= f.hidden_field :user_id, value: @user.id %>
+          <%= f.submit %>
         <% end %>
       </div>
 
-      <%= form_for @keyword do |f| %>
-        <%= f.text_field :name, autofocus: "autofocus", spellcheck: "false", required: "required" %>
-        <%= f.hidden_field :user_id, value: @user.id %>
-        <%= f.submit %>
-      <% end %>
+      <div class="column two-thirds">
+        <div id="keywords">
+          <% if @user.keywords.count == 0 %>
+            <span>Start by adding a keyword below:</span>
+          <% else %>
+            <% @user.keywords.sort_by(&:created_at).each do |k| %>
+              <blockquote class="clearfix" data-selected="<%= k.result_type %>">
+                <%= content_tag :span, k.name, class: "keyword" %>
+                <%= form_for k do |f| %>
+                  <%= f.select :result_type, [['mixed','mixed'],['recent','recent'],['popular','popular']] %>
+                  <%= f.submit 'Update' %>
+                <% end %>
+              </blockquote>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -62,6 +68,6 @@
     $('nav').addClass('animated fadeInDown');
     $('.tag').addClass('animated bounceIn');
     $('#keyword-count, #impression-count').addClass('animated flipInY');
-    $('.result-type').chosen({width: "22%"});
+    $('.edit_keyword select').chosen({width: "17%"});
   });
 </script>

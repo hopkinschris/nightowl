@@ -9,5 +9,5 @@ NightOwl::Application.routes.draw do
 
   get '/waitlist', to: 'waitlist#index', as: :waitlist
 
-  resources :keywords
+  resources :keywords, only: [:create, :update]
 end
