@@ -4,5 +4,6 @@ class Keyword < ActiveRecord::Base
   validates_presence_of :name, :result_type
 
   attr_accessible :name,
-                  :result_type
+                  :result_type,
+                  :rate
 end

@@ -12,7 +12,8 @@ class Bot
     begin
       num_attempts += 1
       @user.keywords.each do |k|
-        @client.search(k.name, result_type: k.result_type, count: 10).take((0..10).to_a.sample).each do |tweet|
+        @client.search(k.name, result_type: k.result_type, count: 10).take(k.rate).each do |tweet|
+          puts "Searching #{ k.name }..."
           if @client.favorite(tweet)
             k.impression_count += 1
             k.save

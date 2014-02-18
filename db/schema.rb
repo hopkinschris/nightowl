@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217011349) do
+ActiveRecord::Schema.define(version: 20140218000334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140217011349) do
     t.datetime "updated_at"
     t.integer  "impression_count", default: 0
     t.string   "result_type",      default: "mixed"
+    t.integer  "rate",             default: 5
   end
 
   create_table "users", force: true do |t|

@@ -214,7 +214,7 @@ button
       box-shadow: 0 3px 0 #dce8ed
 
       &:last-child
-        margin-bottom: 90px
+        margin-bottom: 50%
 
       &:before
         content: ""
@@ -245,11 +245,27 @@ button
         bottom: -36px
         right: 26px
 
-    .chosen-container
+    #keyword_result_type_chosen,
+    #keyword_rate_chosen
       position: absolute
-      right: 26px
       .chosen-single
         line-height: 20px
+
+    #keyword_result_type_chosen
+      width: 87px!important
+      right: 156px
+
+      &:after
+        content: "tweets per hour"
+        position: absolute
+        right: -130px
+        top: 0
+        font-size: 1rem
+        font-weight: 600
+
+    #keyword_rate_chosen
+      width: 50px!important
+      right: 250px
 
     .keyword
       position: absolute
@@ -371,6 +387,15 @@ button
         text-decoration: none
         color: $beige-color
 
+@media screen and (min-width: 641px) and (max-width: 835px)
+  #keyword_result_type_chosen
+    right: 26px!important
+    &:after
+      display: none
+
+  #keyword_rate_chosen
+    right: 120px!important
+
 @media screen and (max-width: 640px)
   h3
     width: 100%
@@ -396,9 +421,27 @@ button
       max-width: 100%
 
     #keywords
+      .keyword
+        width: 81%
+        text-align: center
       li
         width: 98%
         display: block
+      .edit_keyword
+        margin-top: 40px
+
+        #keyword_result_type_chosen
+          right: 23.75%
+
+          &:after
+            display: none
+
+        #keyword_rate_chosen
+          left: 23.75%
+
+      blockquote
+        &:last-child
+          margin-bottom: 100%
 
     .update,
     .delete

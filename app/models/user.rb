@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   validates :uid, presence: true, uniqueness: true
 
+  attr_accessible :waitlist
+
   scope :active,   -> { where(waitlist: "false") }
   scope :inactive, -> { where(waitlist: "true") }
 
