@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :keywords
 
+  serialize :roles, Array
+
   validates :uid, presence: true, uniqueness: true
 
   attr_accessible :waitlist
@@ -23,5 +25,9 @@ class User < ActiveRecord::Base
         user.secret = auth_hash['credentials']['secret']
       end
     end
+  end
+
+  def admin?
+    self.roles.include? :admin
   end
 end
