@@ -13,9 +13,13 @@ class Bot
       num_attempts += 1
       @user.keywords.each do |k|
         @client.search(k.name, result_type: k.result_type, count: 10).take(k.rate).each do |tweet|
-          if @client.favorite(tweet)
-            k.impression_count += 1
-            k.save
+          begin
+            if @client.favorite(tweet)
+              k.impression_count += 1
+              k.save
+            end
+          rescue => e
+            puts "#{ e.message }"
           end
         end
       end
