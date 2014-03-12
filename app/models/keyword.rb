@@ -5,5 +5,6 @@ class Keyword < ActiveRecord::Base
 
   attr_accessible :name,
                   :result_type,
-                  :rate
+                  :rate,
+                  :sentiment
 end

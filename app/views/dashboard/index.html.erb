@@ -40,6 +40,13 @@
           <%= f.hidden_field :user_id, value: @user.id %>
           <%= f.submit %>
         <% end %>
+        <div class="clearfix"></div>
+
+        <div class="note">
+          <h3><span class="flag flag-new">New</span>Sentiment Analysis</h3>
+          <p>All tweets now undergo sentiment analysis before an impression occurs.</p>
+          <p>By default the system discards tweets with negative sentiment and generates an impression for tweets with positive or neutral sentiment.</p>
+        </div>
       </div>
 
       <div class="column two-thirds">

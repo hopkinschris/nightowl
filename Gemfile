@@ -14,6 +14,7 @@ gem 'awesome_print'
 gem 'twitter'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'sentimentalizer'
 
 group :development do
   gem 'debugger'

@@ -14,9 +14,11 @@ class Bot
       @user.keywords.each do |k|
         @client.search(k.name, result_type: k.result_type, count: 10).take(k.rate).each do |tweet|
           begin
-            if @client.favorite(tweet)
-              k.impression_count += 1
-              k.save
+            if sentiment_analysis(k, tweet)
+              if @client.favorite(tweet)
+                k.impression_count += 1
+                k.save
+              end
             end
           rescue => e
             puts "#{ e.message }"
@@ -35,6 +37,33 @@ class Bot
   end
 
   private
+
+  def sentiment_analysis(keyword, tweet)
+    sentiment = SentimentBot.new tweet.text
+    results = sentiment.analyze
+    if results.include?(':)')
+      # POSITIVE
+      if keyword.sentiment.include?('positive')
+        return true
+      else
+        return false
+      end
+    elsif results.include?(':|')
+      # NEUTRAL
+      if keyword.sentiment.include?('neutral')
+        return true
+      else
+        return false
+      end
+    else
+      # NEGATIVE
+      if keyword.sentiment.include?('negative')
+        return true
+      else
+        return false
+      end
+    end
+  end
 
   def establish_client
     @client = Twitter::REST::Client.new do |config|
