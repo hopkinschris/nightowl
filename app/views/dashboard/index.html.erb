@@ -43,8 +43,16 @@
         <div class="clearfix"></div>
 
         <div class="note animated flipInY">
-          <h3 class="features"><span class="flag flag-new">New</span>Sentiment Analysis</h3>
-          <p>All tweets now undergo sentiment analysis before an impression occurs.</p>
+          <h3 class="features"><span class="flag flag-new">New</span>Mindful Mentions</h3>
+          <p>All keywords are mindful of the users who wrote the tweets they were used in, and other users that may have been mentioned in the tweet.</p>
+          <p>By default the system keeps a history of users whos tweets were favourited and any other users mentioned in them. The system will not favourite another tweet by any of those users within a window of 24 hours (by default).</p>
+          <p>Mention history for each keyword will be cleared daily.</p>
+          <p>If you so choose, click the "Advanced" link under each keyword to change that keyword's mention clearing setting from daily to weekly and make sure to hit update.</p>
+        </div>
+
+        <div class="note animated flipInY">
+          <h3 class="features">Sentiment Analysis</h3>
+          <p>All tweets sentiment analysis before an impression occurs.</p>
           <p>By default the system discards tweets with negative sentiment and generates an impression for tweets with positive or neutral sentiment.</p>
         </div>
       </div>
@@ -58,8 +66,17 @@
               <blockquote class="clearfix" data-selected="<%= k.result_type %>">
                 <%= content_tag :span, k.name, class: "keyword" %>
                 <%= form_for k, html: { method: :put } do |f| %>
-                  <%= f.select :result_type, [['mixed','mixed'],['recent','recent'],['popular','popular']] %>
-                  <%= f.select :rate, [["0",0],["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]] %>
+                  <div class="main">
+                    <%= f.select :result_type, [['mixed','mixed'],['recent','recent'],['popular','popular']] %>
+                    <%= f.select :rate, [["0",0],["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]] %>
+                  </div>
+                  <div class="details clearfix">
+                    <a class="more" href="">Advanced</a>
+                    <div class="mentions">
+                      <%= f.label :reset_mention_history, 'Clear mention history ' %>
+                      <%= f.select :reset_mention_history, [['daily','daily'],['weekly','weekly']] %>
+                    </div>
+                  </div>
                   <%= f.submit 'Update', class: 'update' %>
                 <% end %>
 
@@ -81,5 +98,12 @@
     $('.tag').addClass('animated bounceIn');
     $('#keyword-count, #impression-count').addClass('animated flipInY');
     $('select').chosen();
+
+    $('.more').on('click', function(ev) {
+      ev.preventDefault();
+      $(this).fadeOut('fast',function(){
+        $(ev.target).siblings('.mentions').fadeToggle();
+      });
+    });
   });
 </script>
