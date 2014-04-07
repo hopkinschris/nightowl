@@ -14,7 +14,7 @@ class Bot
       @user.keywords.each do |k|
         @client.search(k.name, result_type: k.result_type, count: 10).take(k.rate).each do |tweet|
           begin
-            if sentiment_analysis(k, tweet)
+            if sentiment_analysis(k, tweet) && mention_extraction(k, tweet)
               if @client.favorite(tweet)
                 k.impression_count += 1
                 k.save
@@ -37,6 +37,12 @@ class Bot
   end
 
   private
+
+  def mention_extraction(keyword, tweet)
+    mention_extractor = MentionExtractor.new keyword, tweet
+    mention_extractor.perform
+    mention_extractor.instance_variable_get(:@forward)
+  end
 
   def sentiment_analysis(keyword, tweet)
     sentiment = SentimentBot.new tweet.text

@@ -208,6 +208,7 @@ button
       color: rgba(85,94,106,0.8)
       font-size: 16px
       line-height: 1.5
+      min-height: 145px
       text-align: center
       margin: 0 0 67px 0
       padding: 26px 26px 52px 26px
@@ -275,10 +276,34 @@ button
       width: 50px!important
       right: 250px
 
+    #keyword_reset_mention_history_chosen
+      text-align: center
+      width: 87px!important
+      right: 156px
+      float: right
+      .chosen-single
+        line-height: 20px
+
     .keyword
       position: absolute
       left: 26px
       font-weight: 600
+
+    .main
+      border-bottom: 1px solid rgba(0,0,0,0.1)
+      height: 49px
+
+    .details
+      position: absolute
+      left: 26px
+      bottom: 26px
+      text-align: left
+      .more
+        text-decoration: none
+        color: #333
+      .mentions
+        display: none
+        width: 415px
 
   #new_keyword
     margin: 0 auto
@@ -363,13 +388,17 @@ button
         &:first-child
           color: $green-color
           font-weight: 900
-          font-size: 6rem
-          margin-bottom: -15px
+          font-size: 4rem
+          margin: 15px 15px -15px 15px
         &:last-child
           color: $beige-color
           font-weight: 700
           font-size: 0.5rem
           text-transform: uppercase
+    #impression-count
+      span
+        &:first-child
+          color: $beige-color
 
   .edit_keyword
     .update
@@ -490,6 +519,7 @@ button
           left: 23.75%
 
       blockquote
+        height: 185px
         &:last-child
           margin-bottom: 100%
 

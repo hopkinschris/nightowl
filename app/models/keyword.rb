@@ -6,5 +6,11 @@ class Keyword < ActiveRecord::Base
   attr_accessible :name,
                   :result_type,
                   :rate,
-                  :sentiment
+                  :sentiment,
+                  :reset_mention_history
+
+  serialize :mentions, Array
+
+  scope :daily,  -> { where(reset_mention_history: "daily") }
+  scope :weekly, -> { where(reset_mention_history: "weekly") }
 end
