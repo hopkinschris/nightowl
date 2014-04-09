@@ -41,7 +41,12 @@ class Bot
   def mention_extraction(keyword, tweet)
     mention_extractor = MentionExtractor.new keyword, tweet
     mention_extractor.perform
-    mention_extractor.instance_variable_get(:@forward)
+    case mention_extractor.instance_variable_get(:@forward)
+    when true
+      return true
+    when false
+      return false
+    end
   end
 
   def sentiment_analysis(keyword, tweet)

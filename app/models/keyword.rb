@@ -7,7 +7,8 @@ class Keyword < ActiveRecord::Base
                   :result_type,
                   :rate,
                   :sentiment,
-                  :reset_mention_history
+                  :reset_mention_history,
+                  :mentions
 
   serialize :mentions, Array
 

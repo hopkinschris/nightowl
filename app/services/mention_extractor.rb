@@ -21,7 +21,11 @@ class MentionExtractor
 
   def extract_mentionees
     mentionees = @artifact.text.scan(REGEX).flatten!
-    record mentionees unless mentionees.blank?
+    unless mentionees.blank?
+      mentionees.each do |m|
+        record m
+      end
+    end
   end
 
   def record(handle)
@@ -29,6 +33,7 @@ class MentionExtractor
       @forward = false
     else
       @keyword.mentions << handle
+      @keyword.mentions.flatten!
       @keyword.save
     end
   end
