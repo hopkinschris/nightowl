@@ -117,6 +117,9 @@ button
     -moz-box-shadow: 0 4px 0 0 #2c6085
     box-shadow: 0 4px 0 0 #2C6085
     border: none
+    &.github
+      font-size: 1rem
+      margin: 40px 10px 0 0
     &:hover
       background-color: #4795CC
   &.red
@@ -414,10 +417,18 @@ button
       z-index: 10
 
 .waitlist#index
+  h3
+    margin-bottom: 25px
+    a
+      text-decoration: none
+      color: inherit
+      border-bottom: 1px solid
+
   #waitlist
     list-style: none
     margin: 0
     padding: 0
+    margin-top: 25px
 
     li
       a
@@ -442,6 +453,10 @@ button
   -webkit-box-shadow: 0 3px 0 #dce8ed
   -moz-box-shadow: 0 3px 0 #dce8ed
   box-shadow: 0 3px 0 #dce8ed
+  a
+    text-decoration: none
+    color: inherit
+    border-bottom: 1px solid
 
 .features
   width: 100%
@@ -465,6 +480,9 @@ button
   &.flag-new
     background: $beige-color
     color: #fafafa
+
+.hide
+  display: none
 
 @media screen and (min-width: 641px) and (max-width: 835px)
   #keyword_result_type_chosen
@@ -532,3 +550,7 @@ button
 
     select
       float: right
+
+@media screen and (max-width : 480px)
+  button.blue.github
+    margin: 40px 0 0 0
