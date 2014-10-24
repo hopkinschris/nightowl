@@ -30,13 +30,11 @@ If you so choose, click the "Advanced" link under each keyword to change that ke
 
 3. Create a Heroku app and push the code base up to Heroku. Add a PostgreSQL database add-on and the [Heroku Scheduler](https://addons.heroku.com/scheduler) add-on. You will need to add 3 rake tasks to the scheduler: `rake awaken` which is set to hourly, `rake clear_mentions_daily` which is set to daily, and `rake clear_mentions_weekly` which is set to daily but the code handles only executing it on a weekly basis.
 
-4. Reinstate the login and waitlist links (if you so choose) by removing the `hide` class from each respective link. Alternatively, you can login by visiting `/login` and view the waitlist by visiting `/waitlist` (if you intend to allow other users to use your app).
+4. Authenticate your Twitter account with the application by logging in for the first time.
 
-5. Authenticate your Twitter account with the application by logging in for the first time.
+5. Take yourself off the waitlist and make yourself an admin: `u=User.where(nickname: 'foobar').first; u.update_attributes! waitlist: "false", roles: [:regular_user, :admin]`
 
-6. Take yourself off the waitlist and make yourself an admin: `u=User.where(nickname: 'foobar').first; u.update_attributes! waitlist: "false", roles: [:regular_user, :admin]`
-
-7. Log back into the app and start adding your keywords.
+6. Log back into the app and start adding your keywords.
 
 ## Prospective Roadmap
 

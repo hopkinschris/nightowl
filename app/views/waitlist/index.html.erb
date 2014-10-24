@@ -1,15 +1,16 @@
 <div class="container">
   <div class="row">
-    <nav class="column full">
+    <div class="column full">
       <% if flash[:notice] %>
         <div class="notice"><%= flash[:notice] %></div>
       <% end %>
 
-      <h1><a href="<%= root_url %>">Night <em>Owl</em></a></h1>
-      <%= image_tag "square@2x.png", id: "logo" %>
-      <h2>Waitlist</h2>
-      <h3>Thanks for being part of the Beta. Unfortunately, I will no longer be maintaining or contributing to the service. The app will continue to run for those already with activated accounts. The good news is that I've decided to <a href="https://github.com/hopkinschris/nightowl">open source</a> the project. Feel free to fork it, make it better, and setup your own instance! I've provided <a href="https://github.com/hopkinschris/nightowl/blob/master/README.md#instructions">instructions</a> on exactly how to get started.</h3>
-    </nav>
+      <nav>
+        <h1><a href="<%= root_url %>">Night <em>Owl</em></a></h1>
+        <%= image_tag "square@2x.png", id: "logo" %>
+        <h2>Waitlist</h2>
+      </nav>
+    </div>
   </div>
 
   <div class="row">
